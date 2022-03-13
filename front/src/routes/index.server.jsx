@@ -26,12 +26,12 @@ export default function Index({country = {isoCode: 'US'}}) {
       </Suspense>
       <div className="relative mb-12">
         <Welcome />
-        <Suspense fallback={<BoxFallback />}>
+        {/* <Suspense fallback={<BoxFallback />}>
           <FeaturedProductsBox country={country} />
         </Suspense>
         <Suspense fallback={<BoxFallback />}>
           <FeaturedCollectionBox country={country} />
-        </Suspense>
+        </Suspense> */}
       </div>
     </Layout>
   );
