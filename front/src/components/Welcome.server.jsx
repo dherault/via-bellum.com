@@ -2,6 +2,7 @@
 // import gql from 'graphql-tag';
 // import {Suspense} from 'react';
 
+import RotatingButton from './RotatingButton.client';
 // function ExternalIcon() {
 //   return (
 //     <svg
@@ -137,6 +138,11 @@ export default function Welcome() {
       <h1 className="text-8xl font-primary text-white text-center text-shadow">
         Collect, Paint, Command.
       </h1>
+      <div className="mt-12">
+        <div className="w-full flex flex-col justify-center items-center">
+          <RotatingButton />
+        </div>
+      </div>
     </div>
   );
 }
