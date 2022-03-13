@@ -14,7 +14,8 @@
     "build:server": "vite build --outDir dist/server --ssr @shopify/hydrogen/platforms/node",
     "build:worker": "cross-env WORKER=true vite build --outDir dist/worker --ssr @shopify/hydrogen/platforms/worker-event",
     "serve": "node --enable-source-maps dist/server",
-    "preview": "npx @shopify/hydrogen-cli@latest preview"
+    "preview": "npx @shopify/hydrogen-cli@latest preview",
+    "deploy": "gcloud builds submit --project via-bellum --tag us-central1-docker.pkg.dev/via-bellum/via-bellum-com/latest"
   },
   "prettier": "@shopify/prettier-config",
   "devDependencies": {
