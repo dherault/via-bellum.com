@@ -9,7 +9,7 @@ import {
 import {Suspense} from 'react';
 
 import Header from './Header.client';
-// import Footer from './Footer.server';
+import Footer from './Footer.server';
 import Cart from './Cart.client';
 
 /**
@@ -57,12 +57,13 @@ export default function Layout({children}) {
 
   return (
     <LocalizationProvider preload="*">
-      <div className="bg-primary min-h-screen min-w-fit">
+      <div className="bg-primary min-h-screen min-w-fit flex flex-col">
         <Suspense fallback={null}>
           <Header />
           <Cart />
         </Suspense>
-        <div className="mt-2">{children}</div>
+        <div className="my-2 flex-grow">{children}</div>
+        <Footer />
       </div>
     </LocalizationProvider>
   );

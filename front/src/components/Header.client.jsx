@@ -1,8 +1,8 @@
-// import {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Link, Image} from '@shopify/hydrogen/client';
 
-// import CartToggle from './CartToggle.client';
-// import {useCartUI} from './CartUIProvider.client';
+import CartToggle from './CartToggle.client';
+import {useCartUI} from './CartUIProvider.client';
 // import CountrySelector from './CountrySelector.client';
 // import Navigation from './Navigation.client';
 // import MobileNavigation from './MobileNavigation.client';
@@ -11,9 +11,11 @@ import {Link, Image} from '@shopify/hydrogen/client';
  * A client component that specifies the content of the header on the website
  */
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scroll, setScroll] = useState(0);
   // const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   // const [scrollbarWidth, setScrollbarWidth] = useState(0);
-  // const {isCartOpen} = useCartUI();
+  const {isCartOpen} = useCartUI();
 
   // useEffect(() => {
   //   const scrollbarWidth =
@@ -21,6 +23,15 @@ export default function Header() {
 
   //   setScrollbarWidth(scrollbarWidth);
   // }, [isCartOpen]);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScroll(window.scrollY);
+    }
+
+    document.addEventListener('scroll', handleScroll);
+    return () => document.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header className="w-full h-24 relative">
@@ -41,7 +52,23 @@ export default function Header() {
         </div>
       </div>
       <div className="absolute left-0 right-0 top-0">
-        <div className="w-full h-12 bg-secondary"></div>
+        <div className="w-full h-12 bg-secondary text-primary flex items-center justify-between">
+          <div className="w-32" />
+          <div className="flex items-center justify-center">
+            <Link href="/store" className="header-link">
+              Store
+            </Link>
+            <div style={{width: 256 - 64}} />
+            <Link href="/blog" className="header-link">
+              Blog
+            </Link>
+          </div>
+          <div className="w-32 flex items-center justify-end px-2">
+            <div className="mt-2">
+              <CartToggle />
+            </div>
+          </div>
+        </div>
         <div className="header-triangle"></div>
         <Link href="/" className="header-logo">
           <Image
@@ -57,6 +84,43 @@ export default function Header() {
           <div>Bellum</div>
         </div>
       </div>
+      <div
+        className="fixed top-0 text-primary transition-all duration-300 z-10"
+        style={{
+          visibility: scroll < 48 ? 'hidden' : 'visible',
+          opacity: scroll > 48 ? 1 : 0,
+          left: isMenuOpen ? 128 + 64 : 0,
+        }}
+      >
+        <div className="header-left-triangle" />
+        <div className="mt-3 ml-2">
+          <button
+            type="button"
+            className={`hamburger hamburger--squeeze ${
+              isMenuOpen ? 'is-active' : ''
+            }`}
+            onClick={() => setIsMenuOpen((x) => !x)}
+          >
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+      {!isCartOpen && (
+        <div
+          className="fixed top-0 right-0 text-primary transition-all duration-300 z-10 flex justify-end"
+          style={{
+            visibility: scroll < 48 ? 'hidden' : 'visible',
+            opacity: scroll > 48 ? 1 : 0,
+          }}
+        >
+          <div className="header-right-triangle" />
+          <div className="mt-1.5 mr-2">
+            <CartToggle />
+          </div>
+        </div>
+      )}
     </header>
   );
 }

@@ -24,15 +24,13 @@ export default function Index({country = {isoCode: 'US'}}) {
       <Suspense fallback={null}>
         <SeoForHomepage />
       </Suspense>
-      <div className="relative mb-12">
-        <Welcome />
-        {/* <Suspense fallback={<BoxFallback />}>
+      <Welcome />
+      {/* <Suspense fallback={<BoxFallback />}>
           <FeaturedProductsBox country={country} />
         </Suspense>
         <Suspense fallback={<BoxFallback />}>
           <FeaturedCollectionBox country={country} />
         </Suspense> */}
-      </div>
     </Layout>
   );
 }

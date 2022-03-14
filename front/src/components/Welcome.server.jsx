@@ -136,7 +136,7 @@ import RotatingButton from './RotatingButton.client';
  */
 export default function Welcome() {
   return (
-    <div className="relative overflow-hidden min-h-screen">
+    <div className="relative overflow-hidden" style={{minHeight: 1080 * 0.75}}>
       <div className="absolute top-0" style={{right: -84}}>
         <Image
           src="/images/japanese-trooper-cropped.png"
