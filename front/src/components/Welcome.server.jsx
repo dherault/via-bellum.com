@@ -156,12 +156,12 @@ export default function Welcome() {
         <h1 className="text-8xl font-primary text-white text-center text-shadow">
           Collect, Paint, Command.
         </h1>
-        <sub className="text-xl text-white text-center block mt-8">
+        <sub className="text-2xl text-white text-center block mt-12">
           Live your hobby to the fullest with high-standard models.
           <br />
           Meet like-minded people to compete against.
         </sub>
-        <div className="mt-12">
+        <div className="mt-16">
           <div className="w-full flex flex-col justify-center items-center">
             <Suspense fallback={null}>
               <RotatingButton>Create your army</RotatingButton>

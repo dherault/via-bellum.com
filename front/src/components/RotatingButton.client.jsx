@@ -33,7 +33,7 @@ export default function RotatingButton({children}) {
   return (
     <span
       ref={buttonRef}
-      className="rotating-button py-2 px-4 text-center cursor-pointer rounded-sm bg-secondary text-primary"
+      className="rotating-button pt-2 pb-3 px-4 text-center cursor-pointer rounded-sm bg-secondary text-primary text-2xl"
     >
       {children}
     </span>
