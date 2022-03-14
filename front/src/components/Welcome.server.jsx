@@ -139,14 +139,14 @@ export default function Welcome() {
     <div className="relative overflow-hidden min-h-screen">
       <div className="absolute top-0" style={{right: -84}}>
         <Image
-          src="/images/japanese-trooper.png"
+          src="/images/japanese-trooper-cropped.png"
           width={(864 / 1618) * 1080 * 0.75}
           height={1080 * 0.75}
         />
       </div>
       <div className="absolute top-0" style={{left: -84}}>
         <Image
-          src="/images/japanese-trooper.png"
+          src="/images/japanese-trooper-cropped.png"
           width={(864 / 1618) * 1080 * 0.75}
           height={1080 * 0.75}
           style={{transform: 'scale(-1, 1)'}}
