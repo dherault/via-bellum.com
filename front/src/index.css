@@ -31,7 +31,7 @@
 
 html {
   scroll-padding-top: 10rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 
 model-viewer::part(default-progress-mask) {

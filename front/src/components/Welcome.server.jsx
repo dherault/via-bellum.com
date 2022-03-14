@@ -1,3 +1,4 @@
+import {Image} from '@shopify/hydrogen';
 // import {useShopQuery, flattenConnection, Link} from '@shopify/hydrogen';
 // import gql from 'graphql-tag';
 // import {Suspense} from 'react';
@@ -135,15 +136,37 @@ import RotatingButton from './RotatingButton.client';
  */
 export default function Welcome() {
   return (
-    <div className="container mx-auto mt-24">
-      <h1 className="text-8xl font-primary text-white text-center text-shadow">
-        Collect, Paint, Command.
-      </h1>
-      <div className="mt-12">
-        <div className="w-full flex flex-col justify-center items-center">
-          <Suspense fallback={null}>
-            <RotatingButton>Create your army</RotatingButton>
-          </Suspense>
+    <div className="relative overflow-hidden min-h-screen">
+      <div className="absolute top-0" style={{right: -84}}>
+        <Image
+          src="/images/japanese-trooper.png"
+          width={(864 / 1618) * 1080 * 0.75}
+          height={1080 * 0.75}
+        />
+      </div>
+      <div className="absolute top-0" style={{left: -84}}>
+        <Image
+          src="/images/japanese-trooper.png"
+          width={(864 / 1618) * 1080 * 0.75}
+          height={1080 * 0.75}
+          style={{transform: 'scale(-1, 1)'}}
+        />
+      </div>
+      <div className="relative container mx-auto pt-32">
+        <h1 className="text-8xl font-primary text-white text-center text-shadow">
+          Collect, Paint, Command.
+        </h1>
+        <sub className="text-xl text-white text-center block mt-8">
+          Live your hobby to the fullest with high-standard models.
+          <br />
+          Meet like-minded people to compete against.
+        </sub>
+        <div className="mt-12">
+          <div className="w-full flex flex-col justify-center items-center">
+            <Suspense fallback={null}>
+              <RotatingButton>Create your army</RotatingButton>
+            </Suspense>
+          </div>
         </div>
       </div>
     </div>
