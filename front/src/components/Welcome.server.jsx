@@ -5,6 +5,7 @@ import {Image} from '@shopify/hydrogen';
 
 import {Suspense} from 'react';
 import RotatingButton from './RotatingButton.client';
+import ScrollMouse from './ScrollMouse.client';
 // function ExternalIcon() {
 //   return (
 //     <svg
@@ -136,7 +137,20 @@ import RotatingButton from './RotatingButton.client';
  */
 export default function Welcome() {
   return (
-    <div className="relative overflow-hidden" style={{minHeight: 1080 * 0.75}}>
+    <div className="relative overflow-hidden" style={{minHeight: 1080}}>
+      <div className="absolute" style={{left: -512, right: -512, top: 600}}>
+        <svg
+          className="w-full h-96"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <polygon
+            points="0,50 50,0 100,50 50,100"
+            className="fill-primary-darker"
+            strokeWidth="0"
+          />
+        </svg>
+      </div>
       <div className="absolute top-0" style={{right: -84}}>
         <Image
           src="/images/japanese-trooper-cropped.png"
@@ -165,6 +179,9 @@ export default function Welcome() {
           <div className="w-full flex flex-col justify-center items-center">
             <Suspense fallback={null}>
               <RotatingButton>Create your army</RotatingButton>
+              <div className="mt-64">
+                <ScrollMouse />
+              </div>
             </Suspense>
           </div>
         </div>

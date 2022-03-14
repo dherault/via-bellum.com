@@ -62,7 +62,7 @@ export default function Layout({children}) {
           <Header />
           <Cart />
         </Suspense>
-        <div className="my-2 flex-grow">{children}</div>
+        <div className="mt-2 flex-grow">{children}</div>
         <Footer />
       </div>
     </LocalizationProvider>
