@@ -1,11 +1,11 @@
 import {
-  useShopQuery,
-  flattenConnection,
+  // useShopQuery,
+  // flattenConnection,
   LocalizationProvider,
-  CacheHours,
+  // CacheHours,
 } from '@shopify/hydrogen';
-import {ImageFragment} from '@shopify/hydrogen/fragments';
-import gql from 'graphql-tag';
+// import {ImageFragment} from '@shopify/hydrogen/fragments';
+// import gql from 'graphql-tag';
 import {Suspense} from 'react';
 
 import Header from './Header.client';
@@ -16,17 +16,17 @@ import Cart from './Cart.client';
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
  */
 export default function Layout({children}) {
-  const {data} = useShopQuery({
-    query: QUERY,
-    variables: {
-      numCollections: 3,
-    },
-    cache: CacheHours(),
-    preload: '*',
-  });
-  const collections = data ? flattenConnection(data.collections) : null;
-  // const products = data ? flattenConnection(data.products) : null;
-  const storeName = data ? data.shop.name : '';
+  // const {data} = useShopQuery({
+  //   query: QUERY,
+  //   variables: {
+  //     numCollections: 3,
+  //   },
+  //   cache: CacheHours(),
+  //   preload: '*',
+  // });
+  // const collections = data ? flattenConnection(data.collections) : null;
+  // // const products = data ? flattenConnection(data.products) : null;
+  // const storeName = data ? data.shop.name : '';
 
   // return (
   //   <LocalizationProvider preload="*">
@@ -59,40 +59,40 @@ export default function Layout({children}) {
     <LocalizationProvider preload="*">
       <div className="bg-primary min-h-screen min-w-fit">
         <Suspense fallback={null}>
-          <Header collections={collections} storeName={storeName} />
+          <Header />
           <Cart />
         </Suspense>
-        {children}
+        <div className="mt-2">{children}</div>
       </div>
     </LocalizationProvider>
   );
 }
 
-const QUERY = gql`
-  query layoutContent($numCollections: Int!) {
-    shop {
-      name
-    }
-    collections(first: $numCollections) {
-      edges {
-        node {
-          description
-          handle
-          id
-          title
-          image {
-            ...ImageFragment
-          }
-        }
-      }
-    }
-    products(first: 1) {
-      edges {
-        node {
-          handle
-        }
-      }
-    }
-  }
-  ${ImageFragment}
-`;
+// const QUERY = gql`
+//   query layoutContent($numCollections: Int!) {
+//     shop {
+//       name
+//     }
+//     collections(first: $numCollections) {
+//       edges {
+//         node {
+//           description
+//           handle
+//           id
+//           title
+//           image {
+//             ...ImageFragment
+//           }
+//         }
+//       }
+//     }
+//     products(first: 1) {
+//       edges {
+//         node {
+//           handle
+//         }
+//       }
+//     }
+//   }
+//   ${ImageFragment}
+// `;

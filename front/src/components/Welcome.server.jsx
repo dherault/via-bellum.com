@@ -2,6 +2,7 @@
 // import gql from 'graphql-tag';
 // import {Suspense} from 'react';
 
+import {Suspense} from 'react';
 import RotatingButton from './RotatingButton.client';
 // function ExternalIcon() {
 //   return (
@@ -134,13 +135,15 @@ import RotatingButton from './RotatingButton.client';
  */
 export default function Welcome() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-24">
       <h1 className="text-8xl font-primary text-white text-center text-shadow">
         Collect, Paint, Command.
       </h1>
       <div className="mt-12">
         <div className="w-full flex flex-col justify-center items-center">
-          <RotatingButton />
+          <Suspense fallback={null}>
+            <RotatingButton>Create your army</RotatingButton>
+          </Suspense>
         </div>
       </div>
     </div>

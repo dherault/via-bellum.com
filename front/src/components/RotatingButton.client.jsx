@@ -1,36 +1,27 @@
 import {useEffect, useRef} from 'react';
 
-export default function RotatingButton() {
-  let constrain = 120;
+export default function RotatingButton({children}) {
+  let constrain = 80;
   const buttonRef = useRef();
 
   useEffect(() => {
-    function transforms(x, y, el) {
-      let box = el.getBoundingClientRect();
-      let calcX = -(y - box.y - box.height / 2) / constrain;
-      let calcY = (x - box.x - box.width / 2) / constrain;
-
-      return (
-        'perspective(100px) ' +
-        '   rotateX(' +
-        calcX +
-        'deg) ' +
-        '   rotateY(' +
-        calcY +
-        'deg) '
-      );
-    }
-
-    function transformElement(el, xyEl) {
-      el.style.transform = transforms.apply(null, xyEl);
-    }
-
     function handleMouseMove(e) {
-      let xy = [e.clientX, e.clientY];
-      let position = xy.concat([buttonRef.current]);
+      const x = e.clientX;
+      const y = e.clientY;
 
-      window.requestAnimationFrame(function () {
-        transformElement(buttonRef.current, position);
+      window.requestAnimationFrame(() => {
+        let box = buttonRef.current.getBoundingClientRect();
+        let calcX = -(y - box.y - box.height / 2) / constrain;
+        let calcY = (x - box.x - box.width / 2) / constrain;
+
+        buttonRef.current.style.transform =
+          'perspective(100px) ' +
+          '   rotateX(' +
+          calcX +
+          'deg) ' +
+          '   rotateY(' +
+          calcY +
+          'deg) ';
       });
     }
 
@@ -42,9 +33,9 @@ export default function RotatingButton() {
   return (
     <span
       ref={buttonRef}
-      className="rotating-button p-2 font-sans text-center cursor-pointer rounded-sm"
+      className="rotating-button py-2 px-4 font-sans text-center cursor-pointer rounded-sm bg-secondary text-primary"
     >
-      Create your army
+      {children}
     </span>
   );
 }
