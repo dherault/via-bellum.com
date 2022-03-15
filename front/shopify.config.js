@@ -1,5 +1,5 @@
 export default {
-  storeDomain: 'hydrogen-preview.myshopify.com',
-  storefrontToken: '3b580e70970c4528da70c98e097c2fa0',
+  storeDomain: 'dede-8856.myshopify.com',
+  storefrontToken: '8e1d97129cb430efe350011551d04ffe',
   storefrontApiVersion: '2022-04',
 };
