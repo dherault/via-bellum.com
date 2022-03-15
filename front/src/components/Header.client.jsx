@@ -13,16 +13,7 @@ import {useCartUI} from './CartUIProvider.client';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scroll, setScroll] = useState(0);
-  // const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  // const [scrollbarWidth, setScrollbarWidth] = useState(0);
   const {isCartOpen} = useCartUI();
-
-  // useEffect(() => {
-  //   const scrollbarWidth =
-  //     window.innerWidth - document.documentElement.clientWidth;
-
-  //   setScrollbarWidth(scrollbarWidth);
-  // }, [isCartOpen]);
 
   useEffect(() => {
     function handleScroll() {
@@ -53,24 +44,30 @@ export default function Header() {
       </div>
       <div className="absolute left-0 right-0 top-0">
         <div className="w-full h-12 bg-secondary text-primary flex items-center justify-between">
-          <div className="w-32" />
-          <div className="flex items-center justify-center">
-            <Link href="/store" className="header-link">
+          <div className="flex-grow basis-1 flex items-center justify-end">
+            <Link to="/army-creator" className="header-link">
+              Army Creator
+            </Link>
+            <Link to="/store" className="header-link ml-8">
               Store
             </Link>
-            <div style={{width: 256 - 64}} />
-            <Link href="/blog" className="header-link">
+          </div>
+          <div style={{width: 256 - 64 - 8}} />
+          <div className="flex-grow basis-1 flex items-center justify-start">
+            <Link to="/university" className="header-link">
+              University
+            </Link>
+            <Link to="/blog" className="header-link ml-8">
               Blog
             </Link>
-          </div>
-          <div className="w-32 flex items-center justify-end px-2">
-            <div className="mt-2">
+            <div className="flex-grow" />
+            <div className="mt-2 mr-2">
               <CartToggle />
             </div>
           </div>
         </div>
         <div className="header-triangle"></div>
-        <Link href="/" className="header-logo">
+        <Link to="/" className="header-logo">
           <Image
             src="/images/logo-transparent-bg-square.png"
             alt="Logo"

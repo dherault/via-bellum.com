@@ -14,7 +14,7 @@ export default function ScrollMouse() {
 
   return (
     <div
-      className="mousey  transition-all duration-300"
+      className="mousey transition-all duration-500"
       style={{opacity: scroll > 0 ? 0 : 1}}
     >
       <div className="scroller"></div>

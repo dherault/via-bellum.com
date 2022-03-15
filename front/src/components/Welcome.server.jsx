@@ -1,5 +1,6 @@
 import {Image} from '@shopify/hydrogen';
 // import {useShopQuery, flattenConnection, Link} from '@shopify/hydrogen';
+import {Link} from '@shopify/hydrogen';
 // import gql from 'graphql-tag';
 // import {Suspense} from 'react';
 
@@ -178,7 +179,9 @@ export default function Welcome() {
         <div className="mt-16">
           <div className="w-full flex flex-col justify-center items-center">
             <Suspense fallback={null}>
-              <RotatingButton>Create your army</RotatingButton>
+              <Link to="army-creator">
+                <RotatingButton>Create your army</RotatingButton>
+              </Link>
               <div className="mt-64">
                 <ScrollMouse />
               </div>
