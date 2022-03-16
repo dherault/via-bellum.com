@@ -1,11 +1,14 @@
+import {Suspense} from 'react';
 import Layout from '../../components/Layout';
 
-export default function Collection() {
+import ArmyViewer from '../../components/ArmyViewer.client';
+
+export default function ArmyCreator() {
   return (
     <Layout>
-      <div className="mt-64 flex items-center justify-center">
-        Under construction
-      </div>
+      <Suspense fallback={null}>
+        <ArmyViewer />
+      </Suspense>
     </Layout>
   );
 }
