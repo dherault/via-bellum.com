@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
-    <nav className="w100vw position-relative header-top">
+    <nav className="w100 position-relative header-top">
       <div className="position-absolute top-0 left-0 right-0 mt-6">
         <div className="header-lore pt-1">
           The way of war! In a parallel universe, the 12 gods decided to select

@@ -6,6 +6,7 @@
   color: #080e35;
   font-size: 1.25rem;
   font-weight: 600;
+  user-select: none;
 }
 
 .header-link:hover {
