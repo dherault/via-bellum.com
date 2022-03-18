@@ -1,9 +1,9 @@
+import Header from './Header'
+
 function ApplicationLayout({ children }) {
   return (
     <>
-      <nav>
-        Layout
-      </nav>
+      <Header />
       {children}
     </>
   )
