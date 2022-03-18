@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import {STLLoader} from 'three/examples/jsm/loaders/STLLoader.js';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 // import {ProgressiveLightMap} from 'three/examples/jsm/misc/ProgressiveLightMap.js';
+import {GUI} from 'dat.gui';
 
 export default function ArmyViewer() {
   const containerRef = useRef();
@@ -14,16 +15,14 @@ export default function ArmyViewer() {
   return <div ref={containerRef} className="flex-grow" />;
 }
 
-let initialized = false;
-
 function runCanvas(element) {
-  if (initialized) return;
+  if (element.children.length) return;
 
-  initialized = true;
   let camera, scene, renderer;
   let mesh, controls, directionalLight;
 
   init();
+  drawGui();
   animate();
 
   function init() {
@@ -83,6 +82,18 @@ function runCanvas(element) {
     camera.updateProjectionMatrix();
 
     renderer.setSize(width, height);
+  }
+
+  function drawGui() {
+    const gui = new GUI();
+    const meshFolder = gui.addFolder('Cube');
+    meshFolder.add(mesh.rotation, 'x', 0, Math.PI * 2);
+    meshFolder.add(mesh.rotation, 'y', 0, Math.PI * 2);
+    meshFolder.add(mesh.rotation, 'z', 0, Math.PI * 2);
+    meshFolder.open();
+    const cameraFolder = gui.addFolder('Camera');
+    cameraFolder.add(camera.position, 'z', 0, 10);
+    cameraFolder.open();
   }
 
   function animate() {

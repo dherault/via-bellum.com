@@ -1,0 +1,10 @@
+{
+  "short_name": "Via Bellum",
+  "name": "Via Bellum",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
