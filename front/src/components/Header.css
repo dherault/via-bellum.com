@@ -1,0 +1,130 @@
+.header-top {
+  height: 3rem;
+}
+
+.header-link {
+  color: #080e35;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.header-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+.header-center {
+  width: 180px;
+}
+
+.header-center-triangle {
+  position: absolute;
+  top: 3rem;
+  left: calc(50% - 3rem);
+	width: 0;
+	height: 0;
+
+	border-right: 3rem solid transparent;
+	border-left: 3rem solid transparent;
+	border-top: 3rem solid #FFBD69;
+}
+
+.header-logo {
+  width: 128px;
+  position: absolute;
+  top: 4px;
+  left: calc(50% - 128px / 2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo-image {
+  transform: rotate(-18deg);
+}
+
+.header-logotype {
+  position: absolute;
+  top: 4px;
+  left: calc(50% - 128px / 2);
+}
+
+.header-logotype > div {
+  user-select: none;
+  position: absolute;
+  font-family: 'Staatliches', cursive;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.header-logotype > div:first-child {
+  left: 0;
+  top: 0;
+  transform: rotate(45deg) translate(58px, 31px);
+}
+
+.header-logotype > div:last-child {
+  right: 0;
+  top: 0;
+  transform: rotate(-45deg) translate(43px, 132px);
+}
+
+.header-lore {
+  user-select: none;
+  font-family: 'Tangerine', cursive;
+  font-size: 1.5rem;
+  color: #717899;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100vw;
+  padding: 4px 8px;
+}
+
+.header-lore-fader {
+  position: absolute;
+  top: 4px;
+  width: 128px;
+  left: calc(50% - 128px / 2);
+}
+
+.header-lore-fader > div:first-child {
+  left: 0;
+  top: 0;
+  width: 64px;
+  height: 32px;
+  transform: rotate(45deg) translate(0px, 8px);
+  background: linear-gradient(0deg, #080e3500 0%, #080e35ff 25%);
+}
+
+.header-lore-fader > div:last-child {
+  right: 0;
+  top: 0;
+  width: 64px;
+  height: 32px;
+  transform: rotate(-45deg) translate(79px, 30px);
+  background: linear-gradient(0deg, #080e3500 0%, #080e35ff 15%);
+}
+
+.header-left-triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+	width: 0;
+	height: 0;
+
+	border-top: 80px solid #FFBD69;
+  border-right: 80px solid transparent;
+}
+
+.header-right-triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+	width: 0;
+	height: 0;
+
+	border-top: 80px solid #FFBD69;
+  border-left: 80px solid transparent;
+}

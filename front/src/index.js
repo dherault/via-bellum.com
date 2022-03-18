@@ -1,4 +1,3 @@
-import 'bulma/css/bulma.css'
 import 'unicorn-css'
 import 'flexpad/dist/flexpad.css'
 import 'mpxx/mpxx.min.css'

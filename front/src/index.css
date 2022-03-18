@@ -1,5 +1,9 @@
 @import-normalize;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Oswald', sans-serif;
   background-color: #080e35;
@@ -17,4 +21,8 @@ body {
 
 .background-secondary {
   background-color: #FFBD69;
+}
+
+.flex-basis-1 {
+  flex-basis: 1px;
 }
