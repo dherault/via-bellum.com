@@ -30,14 +30,14 @@ function Home() {
         <h1 className="home-h1 mt-10 pt-6">
           Collect, Paint, Command.
         </h1>
-        <p className="home-lead mt-6">
+        <p className="home-lead mt-8">
           Live your hobby to the fullest with high-standard models.
           <br />
           Meet like-minded people to compete against.
         </p>
         <Link
           to="/army-creator"
-          className="mt-6"
+          className="mt-10"
         >
           <RotatingButton>
             Create your army

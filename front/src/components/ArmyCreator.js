@@ -14,12 +14,14 @@ export default function ArmyViewer() {
   return (
     <div
       ref={containerRef}
-      className="flex-grow"
+      className="flex-grow w100"
     />
   )
 }
 
 function runCanvas(element) {
+  if (element.children.length) return
+
   let camera
   let scene
   let renderer
@@ -49,6 +51,7 @@ function runCanvas(element) {
     const loader = new STLLoader()
 
     loader.load('/1.stl', geometry => {
+      // console.log('geometry', geometry)
       const material = new THREE.MeshPhongMaterial({
         color: 0xffbd69,
         specular: 0x111111,
@@ -59,13 +62,13 @@ function runCanvas(element) {
 
       mesh.position.set(0, 0, 0)
       mesh.rotation.set(0, 0, 0)
-      mesh.scale.set(0.2, 0.2, 0.2)
+      // mesh.scale.set(0.2, 0.2, 0.2)
 
-      // mesh.castShadow = true;
-      // mesh.receiveShadow = true;
+      mesh.castShadow = true
+      mesh.receiveShadow = true
 
       scene.add(mesh)
-      camera.position.z = mesh.position.z + 10
+      camera.position.z = mesh.position.z + 40
       camera.lookAt(mesh.position)
     })
 
@@ -91,15 +94,15 @@ function runCanvas(element) {
   }
 
   function drawGui() {
-    const gui = new GUI()
-    const meshFolder = gui.addFolder('Cube')
-    meshFolder.add(mesh.rotation, 'x', 0, Math.PI * 2)
-    meshFolder.add(mesh.rotation, 'y', 0, Math.PI * 2)
-    meshFolder.add(mesh.rotation, 'z', 0, Math.PI * 2)
-    meshFolder.open()
-    const cameraFolder = gui.addFolder('Camera')
-    cameraFolder.add(camera.position, 'z', 0, 10)
-    cameraFolder.open()
+    // const gui = new GUI()
+    // const meshFolder = gui.addFolder('Cube')
+    // // meshFolder.add(mesh.rotation, 'x', 0, Math.PI * 2)
+    // // meshFolder.add(mesh.rotation, 'y', 0, Math.PI * 2)
+    // // meshFolder.add(mesh.rotation, 'z', 0, Math.PI * 2)
+    // meshFolder.open()
+    // const cameraFolder = gui.addFolder('Camera')
+    // cameraFolder.add(camera.position, 'z', 0, 10)
+    // cameraFolder.open()
   }
 
   function animate() {

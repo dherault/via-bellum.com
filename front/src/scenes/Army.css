@@ -1,0 +1,29 @@
+.army-h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+
+.army-h2-before {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.army-h2 {
+  font-size: 5rem;
+  letter-spacing: 1px;
+  text-shadow: -1px 0px 1px #CCCCCC, -0px 1px 1px #EEEEEE, -2px 1px 1px #CCCCCC, -1px 2px 1px #EEEEEE, -3px 2px 1px #CCCCCC, -2px 3px 1px #EEEEEE, -4px 3px 1px #CCCCCC, -3px 4px 1px #EEEEEE;
+}
+
+.army-item {
+  cursor: pointer;
+  color: inherit;
+}
+
+.army-item .army-logo {
+  filter: grayscale(0.666);
+  transition: all 333ms ease;
+}
+
+.army-item:hover .army-logo {
+  filter: none;
+}

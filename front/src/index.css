@@ -24,6 +24,11 @@ h6 {
   font-family: 'Staatliches', sans-serif;
   font-weight: normal;
   margin: 0;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
 }
 
 .text-primary {

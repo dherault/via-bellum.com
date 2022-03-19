@@ -8,6 +8,7 @@ import {
 import ApplicationLayout from './components/ApplicationLayout'
 
 const Home = lazy(() => import('./scenes/Home'))
+const Army = lazy(() => import('./scenes/Army'))
 
 function App() {
   return (
@@ -20,6 +21,17 @@ function App() {
             <ApplicationLayout>
               <Suspense fallback={null}>
                 <Home />
+              </Suspense>
+            </ApplicationLayout>
+          )}
+        />
+        <Route
+          exact
+          path="/army-creator"
+          element={(
+            <ApplicationLayout>
+              <Suspense fallback={null}>
+                <Army />
               </Suspense>
             </ApplicationLayout>
           )}
