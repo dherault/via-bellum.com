@@ -13,30 +13,28 @@ const Army = lazy(() => import('./scenes/Army'))
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={(
-            <ApplicationLayout>
-              <Suspense fallback={null}>
-                <Home />
-              </Suspense>
-            </ApplicationLayout>
-          )}
-        />
-        <Route
-          exact
-          path="/army-creator"
-          element={(
-            <ApplicationLayout>
-              <Suspense fallback={null}>
-                <Army />
-              </Suspense>
-            </ApplicationLayout>
-          )}
-        />
-      </Routes>
+      <ApplicationLayout>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={(
+                <Suspense fallback={null}>
+                  <Home />
+                </Suspense>
+            )}
+            />
+          <Route
+            exact
+            path="/army-creator"
+            element={(
+                <Suspense fallback={null}>
+                  <Army />
+                </Suspense>
+            )}
+            />
+        </Routes>
+      </ApplicationLayout>
     </BrowserRouter>
   )
 }
