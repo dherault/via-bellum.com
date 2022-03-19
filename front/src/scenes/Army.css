@@ -24,6 +24,7 @@
   transition: all 333ms ease;
 }
 
+.army-logo-selected,
 .army-item:hover .army-logo {
-  filter: none;
+  filter: none !important;
 }
