@@ -1,24 +1,13 @@
-import './Army.css'
+import './ArmySelection.css'
 
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const dividerWidth = 64
-const factionToInfo = {
-  japanese: {
-    pluralName: 'Japanese',
-    backgroundSrc: '/images/japanese-logo.png',
-    flipImage: true,
-    infoText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  },
-  aztecs: {
-    pluralName: 'Aztecs',
-    backgroundSrc: '/images/aztecs-logo.png',
-    infoText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  },
-}
+import factionToInfo from '../data/factionToInfo'
 
-function Army() {
+const dividerWidth = 64
+
+function ArmySelection() {
   const [selectedFaction, setSelectedFaction] = useState('')
 
   function toggleFaction(faction) {
@@ -28,7 +17,7 @@ function Army() {
   return (
     <>
       <div className="w100 y2 mt-12">
-        <h1 className="army-h1">Choose your faction</h1>
+        <h1 className="armySelection-h1">Choose your faction</h1>
       </div>
       <div className="flex-grow w100 x2 mt-6">
         <Fader
@@ -94,19 +83,17 @@ function Army() {
 }
 
 function Faction({ faction, onClick = () => {}, selected }) {
-  const { pluralName, backgroundSrc, flipImage } = factionToInfo[faction]
-
-  console.log('selected, faction', selected, faction)
+  const { pluralName, backgroundSrc, foregroundSrc, flipImage } = factionToInfo[faction]
 
   return (
     <div
       onClick={onClick}
-      className="w100 text-align-center army-item y8"
+      className="w100 text-align-center armySelection-item y8"
     >
-      <p className="army-h2-before">
+      <p className="armySelection-h2-before">
         The
       </p>
-      <h2 className="army-h2">
+      <h2 className="armySelection-h2">
         {pluralName}
       </h2>
       <div className="position-relative mt-4">
@@ -114,13 +101,13 @@ function Faction({ faction, onClick = () => {}, selected }) {
           src={backgroundSrc}
           alt="japanese"
           width={256 + 128}
-          className={`army-logo ${selected ? 'army-logo-selected' : ''}`}
+          className={`armySelection-logo no-select ${selected ? 'armySelection-logo-selected' : ''}`}
         />
         <img
-          src="/images/japanese-trooper-cropped.png"
+          src={foregroundSrc}
           width={256 - 64}
           alt="Japanese trooper"
-          className="position-absolute top-0"
+          className="position-absolute top-0 no-select"
           style={{ transform: flipImage ? 'scale(-1, 1)' : null, left: 'calc(50% - (256px - 64px) / 2 + 8px)' }}
         />
       </div>
@@ -152,16 +139,6 @@ function FactionInfo({ faction }) {
     </div>
   )
 }
-
-/*
-Opacity:
-aller: isIn === true --> 1
-retour isIn === false --> 0
-
-Display:
-aller: isIn === true --> block
-retour isIn === false --> block puis none
-*/
 
 function Fader({ children, isIn, duration = 0, style = {}, className = '' }) {
   const [isVisible, setIsVisible] = useState(isIn)
@@ -195,4 +172,4 @@ function Fader({ children, isIn, duration = 0, style = {}, className = '' }) {
   )
 }
 
-export default Army
+export default ArmySelection

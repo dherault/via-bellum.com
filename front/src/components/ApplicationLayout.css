@@ -2,8 +2,14 @@
   opacity: 0;
   z-index: 1;
 }
-
 .applicationLayout-fade-enter.applicationLayout-fade-enter-active {
   opacity: 1;
-  transition: opacity 333ms ease-in;
+  transition: opacity 333ms ease-out;
+}
+.applicationLayout-fade-exit {
+  display: none;
+}
+.applicationLayout-fade-exit.applicationLayout-fade-exit-active {
+  opacity: 0;
+  transition: opacity 333ms ease-out;
 }
