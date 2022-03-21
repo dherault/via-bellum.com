@@ -29,6 +29,7 @@
     "dat.gui": "^0.7.9",
     "firebase": "^9.6.9",
     "flexpad": "^3.0.0",
+    "graphql": "^16.3.0",
     "mpxx": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -38,6 +39,7 @@
     "react-transition-group": "^4.4.2",
     "three": "^0.138.3",
     "unicorn-css": "^1.0.0",
+    "urql": "^2.2.0",
     "web-vitals": "^2.1.4"
   }
 }
